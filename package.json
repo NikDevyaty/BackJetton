@@ -1,0 +1,49 @@
+{
+  "name": "ninth-art-bot-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "npx tsx watch ./src/index.ts",
+    "build": "rimraf ./build && npx tsc",
+    "start-linux": "npm run build-linux && node build/index",
+    "start-windows": "npm run build-windows && node build/index",
+    "lint": "npx eslint ./src",
+    "format": "npx eslint ./src --fix",
+    "build-linux": "npm run build && sudo cp -r ./src/assets ./build && sudo cp .env ./build",
+    "build-windows": "npm run build && xcopy /i \"./src/assets\" \"./build/assets/\" && xcopy \".env\" \"./build\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-winston": "^4.2.0",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.3.3",
+    "node-telegram-bot-api": "^0.65.1",
+    "winston": "^3.13.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@aws-crypto/sha256-js": "^5.2.0",
+    "@ton/blueprint": "^0.20.0",
+    "@ton/core": "^0.56.3",
+    "@ton/ton": "^13.11.1",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.8",
+    "@types/node-telegram-bot-api": "^0.64.6",
+    "@types/request": "^2.48.12",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "base64url": "^3.0.1",
+    "eslint": "8.56",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "ton-crypto": "^3.2.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
